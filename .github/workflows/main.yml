@@ -18,24 +18,24 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: gradle
 
-      - name: Gradle Wrapper İndir
+      - name: Gradle Wrapper Hazırla
+        working-directory: KisiTakipProject
         run: |
           wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip -O /tmp/gradle.zip
           unzip -q /tmp/gradle.zip -d /opt/gradle
-          export PATH=$PATH:/opt/gradle/gradle-8.4/bin
-          gradle wrapper --gradle-version 8.4
+          /opt/gradle/gradle-8.4/bin/gradle wrapper --gradle-version 8.4
           chmod +x gradlew
 
       - name: APK Derle
-        run: ./gradlew assembleDebug --no-daemon --stacktrace
+        working-directory: KisiTakipProject
+        run: ./gradlew assembleDebug --no-daemon
         env:
           GRADLE_OPTS: "-Dorg.gradle.daemon=false"
 
-      - name: APK'yı Yükle
+      - name: APK Yükle
         uses: actions/upload-artifact@v4
         with:
           name: KisiTakip-Debug-APK
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: KisiTakipProject/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
