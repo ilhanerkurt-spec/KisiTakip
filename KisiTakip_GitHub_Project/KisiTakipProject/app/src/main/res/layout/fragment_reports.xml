@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F4F6F9">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="12dp">
+            <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="6dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#E8F5E9">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TOPLAM ALACAK" android:textSize="10sp" android:textColor="#388E3C"/>
+                    <TextView android:id="@+id/tvTotalCredit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0,00 ₺" android:textSize="20sp" android:textStyle="bold" android:textColor="#2E7D32" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="6dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#FFEBEE">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TOPLAM BORÇ" android:textSize="10sp" android:textColor="#C62828"/>
+                    <TextView android:id="@+id/tvTotalDebt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0,00 ₺" android:textSize="20sp" android:textStyle="bold" android:textColor="#B71C1C" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorPrimary">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="NET BAKİYE" android:textColor="#AAFFFFFF" android:textSize="13sp"/>
+                <TextView android:id="@+id/tvNetBalance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0,00 ₺" android:textColor="@android:color/white" android:textSize="24sp" android:textStyle="bold"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

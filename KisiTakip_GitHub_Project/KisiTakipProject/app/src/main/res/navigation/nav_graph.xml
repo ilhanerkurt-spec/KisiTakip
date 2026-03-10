@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/contactListFragment">
+    <fragment android:id="@+id/contactListFragment" android:name="com.kisitakip.presentation.contacts.ContactListFragment" android:label="Kişiler"/>
+    <fragment android:id="@+id/reportsFragment" android:name="com.kisitakip.presentation.reports.ReportsFragment" android:label="Raporlar"/>
+    <fragment android:id="@+id/searchFragment" android:name="com.kisitakip.presentation.search.SearchFragment" android:label="Ara"/>
+    <fragment android:id="@+id/settingsFragment" android:name="com.kisitakip.presentation.settings.SettingsFragment" android:label="Ayarlar"/>
+</navigation>

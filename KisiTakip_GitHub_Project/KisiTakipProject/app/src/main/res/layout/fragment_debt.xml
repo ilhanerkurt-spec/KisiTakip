@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6F9">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="12dp" app:cardCornerRadius="16dp" app:cardBackgroundColor="?attr/colorPrimary">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="NET BAKİYE" android:textColor="#AAFFFFFF" android:textSize="11sp"/>
+                <TextView android:id="@+id/tvNetBalance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0,00 ₺" android:textColor="@android:color/white" android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="4dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Alacak" android:textColor="#AAFFFFFF" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvTotalCredit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0,00 ₺" android:textColor="#A5D6A7" android:textSize="18sp" android:textStyle="bold"/>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Borç" android:textColor="#AAFFFFFF" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvTotalDebt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0,00 ₺" android:textColor="#EF9A9A" android:textSize="18sp" android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerDebts" android:layout_width="match_parent" android:layout_height="match_parent" android:clipToPadding="false" android:paddingBottom="80dp"/>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/fabAddDebt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|end" android:layout_margin="16dp" android:src="@android:drawable/ic_input_add" app:tint="@android:color/white"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
