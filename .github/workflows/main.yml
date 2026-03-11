@@ -19,8 +19,29 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Klasör Yapısını Göster
-        run: find . -maxdepth 3 -type f -name "*.gradle" | head -20
+      - name: Uygulama İkonlarını Oluştur
+        run: |
+          BASE="KisiTakip_GitHub_Project/KisiTakipProject/app/src/main/res"
+          for size in mipmap-mdpi mipmap-hdpi mipmap-xhdpi mipmap-xxhdpi mipmap-xxxhdpi; do
+            mkdir -p "$BASE/$size"
+            # Basit PNG ikonu oluştur (mavi kare)
+            python3 -c "
+          import struct, zlib
+          def create_png(size):
+              def chunk(name, data):
+                  c = zlib.crc32(name + data) & 0xffffffff
+                  return struct.pack('>I', len(data)) + name + data + struct.pack('>I', c)
+              ihdr = struct.pack('>IIBBBBB', size, size, 8, 2, 0, 0, 0)
+              row = b'\\x00' + b'\\x19\\x76\\xd2' * size
+              raw = row * size
+              idat = zlib.compress(raw)
+              return b'\\x89PNG\\r\\n\\x1a\\n' + chunk(b'IHDR', ihdr) + chunk(b'IDAT', idat) + chunk(b'IEND', b'')
+          with open('icon.png', 'wb') as f:
+              f.write(create_png(48))
+          "
+            cp icon.png "$BASE/$size/ic_launcher.png"
+            cp icon.png "$BASE/$size/ic_launcher_round.png"
+          done
 
       - name: Gradle Wrapper Hazırla
         working-directory: KisiTakip_GitHub_Project/KisiTakipProject
